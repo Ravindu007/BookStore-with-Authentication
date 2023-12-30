@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+<div *ngIf="books.length === 0">
+    <p><b>Loading...</b></p>
+  </div>
+  
+  <table class="table table-striped" *ngIf="books.length > 0">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Author</th>
+        <th>Rate</th>
+        <th>Date Started</th>
+        <th>Date Read</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books">
+        <td>{{ book.title }}</td>
+        <td>{{ book.description | slice: 0:50 }}...</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.rate }}</td>
+        <td>{{ book.dateStarted | date: "dd/MM/yyyy" }}</td>
+        <td>{{ book.dateRead | date: "dd/MM/yyyy" }}</td>
+        <td>{{ book.dateRead ? "Read" : book.dateStarted ? "In Progress" : "Not Started" }}</td>
+        <td>
+           <button type="button" class="btn btn-primary mx-1" (click)="showBook(book.id)">VIEW</button>
+           <button type="button" class="btn btn-secondary mx-1" (click)="updateBook(book.id)">Update</button>
+           <button type="button" class="btn btn-danger mx-1" (click)="deleteBook(book.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

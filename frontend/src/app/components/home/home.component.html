@@ -1,0 +1,20 @@
+<div>
+  <ng-container *ngIf="auth.isLoading$ | async; else loaded">
+    <!-- Loading indicator or some other content while authentication is in progress -->
+    <p>Loading...</p>
+  </ng-container>
+
+  <ng-template #loaded>
+    <div class="home">
+      <app-navbar></app-navbar>
+      <h1>Welcome to BookStore</h1>
+      <p>Your web application to manage the books you are reading</p>
+      <ul>
+        <li>View Books</li>
+        <li>Add a Book</li>
+        <li>Update a Book</li>
+        <li>Delete a Book</li>
+      </ul>
+    </div>
+  </ng-template>
+</div>

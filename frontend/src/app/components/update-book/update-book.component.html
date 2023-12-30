@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+<div class="update-book">
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="title" class="required">Title</label>
+            <input type="text" name="title" [(ngModel)]="existingBook.title" class="form-control" id="title" placeholder="Book title">
+        </div>
+        <div class="form-group">
+            <label for="author" class="required">Author</label>
+            <input type="text"  name="author" [(ngModel)]="existingBook.author"  class="form-control" id="author"  placeholder="Book author">
+        </div>
+        <div class="form-group">
+            <label for="description" class="required">Description</label>
+            <input type="text"  name="description" [(ngModel)]="existingBook.description"  class="form-control" id="description" placeholder="Book description">
+        </div>
+    
+        <div class="row">
+            <div class="col-md-4 col-xs-4 col-sm-4">
+                <div class="form-group">
+                    <label for="dateStart">Date start</label>
+                    <input type="date" 
+                    name="dateStarted" [(ngModel)]="existingBook.dateStarted" 
+                    class="form-control" 
+                    id="dateStart" 
+                    placeholder="Date start">
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-4 col-sm-4">
+                <div class="form-group">
+                    <label for="dateRead">Date read</label>
+                        <input 
+                        type="date" 
+                        name="dateRead" [(ngModel)]="existingBook.dateRead" 
+                        class="form-control" 
+                        id="dateRead" 
+                        placeholder="Date read">
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-4 col-sm-4">
+                <div class="form-group">
+                    <label for="rate">Rate</label>
+                    <input type="number"  name="rate" [(ngModel)]="existingBook.rate"  min="0" max="5" class="form-control" 
+                    id="rate" placeholder="Rate">
+                </div>
+            </div>
+        </div>
+    
+        <button class="btn btn-success" type="submit">Add</button>
+        <button class="btn btn-default" [routerLink]="['/books']">Cancel</button>
+    
+    </form>
+    </div>

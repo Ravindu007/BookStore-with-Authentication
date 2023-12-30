@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" routerLink="">BookStore</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" [routerLink]="['/new-book']">Add-Book</a>
+      <a class="nav-item nav-link" [routerLink]="['/books']">Books</a>
+      <a class="nav-item nav-link" [routerLink]="['/profile']">Profile</a>
+      <app-login-button 
+        *ngIf="(auth.isAuthenticated$ | async) === false"
+      ></app-login-button>
+      <app-logout-button
+        *ngIf="(auth.isAuthenticated$ | async) === true"
+      ></app-logout-button>
+    </div>
+  </div>
+</nav>

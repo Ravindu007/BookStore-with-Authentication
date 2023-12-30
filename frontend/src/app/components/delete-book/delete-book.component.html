@@ -1,0 +1,15 @@
+<app-navbar></app-navbar>
+
+<div class="book-details">
+  <div class="card" *ngIf="existingBook">
+      <div class="card-body">
+          <h5 class="card-title">{{existingBook.title}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">by {{existingBook.author}}</h6>
+          <p>
+              {{existingBook.description}}
+          </p>
+          <a [routerLink]="['/books']" class="card-link">Back</a>
+          <a (click)="deleteBook(existingBook.id)" class="btn btn-danger">Confirm</a>
+      </div>
+  </div>
+</div>
